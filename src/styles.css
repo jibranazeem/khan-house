@@ -1,0 +1,148 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-coal: var(--coal);
+  --color-ash: var(--ash);
+  --color-fire: var(--fire);
+  --color-fire-deep: var(--fire-deep);
+  --color-ember: var(--ember);
+  --color-gold: var(--gold);
+  --color-cream: var(--cream);
+  --color-smoke: var(--smoke);
+  --color-leaf: var(--leaf);
+}
+
+:root {
+  --radius: 0.9rem;
+  /* Brand — taken from the Khan House livery: black body, fire red, ember orange, gold. */
+  --ink: oklch(0.15 0.006 30);
+  --coal: oklch(0.21 0.01 30);
+  --ash: oklch(0.3 0.012 30);
+  --fire: oklch(0.58 0.215 27);
+  --fire-deep: oklch(0.47 0.18 27);
+  --ember: oklch(0.69 0.19 45);
+  --gold: oklch(0.82 0.155 80);
+  --cream: oklch(0.975 0.014 75);
+  --smoke: oklch(0.945 0.012 70);
+  --leaf: oklch(0.6 0.14 145);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: oklch(0.995 0.004 75);
+  --card-foreground: var(--ink);
+  --popover: oklch(0.995 0.004 75);
+  --popover-foreground: var(--ink);
+  --primary: var(--fire);
+  --primary-foreground: oklch(0.99 0.004 75);
+  --secondary: var(--smoke);
+  --secondary-foreground: var(--ink);
+  --muted: var(--smoke);
+  --muted-foreground: oklch(0.47 0.015 40);
+  --accent: oklch(0.93 0.04 70);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.015 70);
+  --input: oklch(0.88 0.015 70);
+  --ring: var(--fire);
+  --gradient-fire: linear-gradient(100deg, var(--gold) 0%, var(--ember) 45%, var(--fire) 100%);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-display { font-family: var(--font-display); letter-spacing: 0.01em; font-weight: 400; }
+}
+
+@utility bg-fire-gradient { background-image: var(--gradient-fire); }
+@utility text-fire-gradient {
+  background-image: var(--gradient-fire);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility grain {
+  background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.06) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+@media print { .no-print { display: none !important; } }
+
+/* Motion */
+@keyframes hero-zoom { from { transform: scale(1.14); } to { transform: scale(1); } }
+.hero-zoom { animation: hero-zoom 8s ease-out both; }
+@keyframes hero-copy { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.hero-copy > * { animation: hero-copy 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.hero-copy > *:nth-child(2) { animation-delay: 0.12s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.24s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.36s; }
+@keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.hero-progress { transform-origin: left; animation: hero-progress linear both; }
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.reveal.is-in { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) translateY(0); opacity: 0.9; }
+  25% { transform: scaleY(1.08) translateY(-2px); opacity: 1; }
+  50% { transform: scaleY(0.95) translateY(1px); opacity: 0.85; }
+  75% { transform: scaleY(1.05) translateY(-1px); opacity: 1; }
+}
+.flicker { transform-origin: bottom center; animation: flicker 1.6s ease-in-out infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 32s linear infinite; }
+@keyframes ember-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-60vh) scale(0.3); opacity: 0; }
+}
+.ember-dot { animation: ember-rise linear infinite; }
+@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--fire) 55%, transparent); } 100% { box-shadow: 0 0 0 14px transparent; } }
+.pulse-ring { animation: pulse-ring 1.6s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-zoom, .hero-copy > *, .hero-progress, .flicker, .marquee, .ember-dot, .pulse-ring { animation: none; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
