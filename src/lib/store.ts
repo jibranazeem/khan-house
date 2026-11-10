@@ -18,7 +18,7 @@ import type {
 } from "./types";
 
 const KEY = "khan-house-store-v1";
-const VERSION = 1;
+const VERSION = 2; // bump whenever DEFAULT_MENU changes so saved demo data refreshes
 
 const uid = () => (typeof crypto !== "undefined" && "randomUUID" in crypto ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36));
 
@@ -39,8 +39,9 @@ const STREETS = ["Salem St", "Olive Chapel Rd", "Apex Peakway", "Ten Ten Rd", "K
 
 const POPULARITY: Record<string, number> = {
   "chicken-over-rice": 10, "chicken-lamb-mix": 9, "hibachi-chicken": 9, "hibachi-chicken-shrimp": 7, "chicken-gyro": 7,
-  "lamb-gyro": 5, "hibachi-shrimp": 5, "falafel-over-rice": 4, "seekh-kebabs-rice": 4, "wings-6": 6,
-  "teriyaki-chicken": 4, "teriyaki-shrimp": 3, "teriyaki-chicken-shrimp": 3, "kebab-wrap": 3, "falafel-sandwich": 3, "shrimp-dumplings-6": 4,
+  "lamb-over-rice": 5, "lamb-gyro": 5, "hibachi-shrimp": 5, "falafel-over-rice": 4, "seekh-kebabs-rice": 4, "wings-6": 6,
+  "kebab-wrap": 3, "falafel-sandwich": 3, "fries": 6, "falafel-side-4": 3, "shrimp-dumplings-6": 3, "veggie-dumplings-6": 2,
+  "spring-rolls-2": 4, "samosas-2": 4,
 };
 
 function pickWeighted<T>(r: () => number, items: T[], weight: (t: T) => number) {

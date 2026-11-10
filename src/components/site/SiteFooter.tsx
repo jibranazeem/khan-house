@@ -76,7 +76,7 @@ export function SiteFooter() {
           <div className="mt-4 space-y-3 text-white/75">
             <a href={BRAND.phoneHref} className="flex items-center gap-3 hover:text-white"><Phone className="h-4 w-4 text-ember" />{BRAND.phone}</a>
             <a href={`mailto:${BRAND.email}`} className="flex items-center gap-3 hover:text-white"><Mail className="h-4 w-4 text-ember" />{BRAND.email}</a>
-            <p className="flex items-center gap-3"><MapPin className="h-4 w-4 text-ember" />{BRAND.city}, {BRAND.region}</p>
+            <a href={BRAND.mapsUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-white"><MapPin className="h-4 w-4 text-ember" />{BRAND.city}, {BRAND.region} · Get directions</a>
             <a href={SOCIAL.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-white"><Instagram className="h-4 w-4 text-ember" />@{BRAND.instagramHandle}</a>
           </div>
         </div>

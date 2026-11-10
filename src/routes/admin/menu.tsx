@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/admin/menu")({ component: MenuAdmin });
 
 const TAGS: MenuTag[] = ["halal", "popular", "spicy", "vegetarian", "new"];
-const IMAGES = ["chicken-lamb-mix", "chicken-over-rice", "seekh-kebabs", "falafel-over-rice", "hibachi-chicken", "hibachi-shrimp", "hibachi-chicken-shrimp", "teriyaki-chicken", "teriyaki-shrimp", "chicken-gyro", "lamb-gyro", "kebab-wrap", "falafel-sandwich", "wings", "shrimp-dumplings"].map((n) => `/images/menu/${n}.jpg`);
+const IMAGES = ["chicken-lamb-mix", "chicken-over-rice", "seekh-kebabs", "falafel-over-rice", "hibachi-chicken", "hibachi-shrimp", "hibachi-chicken-shrimp", "lamb-over-rice", "chicken-gyro", "lamb-gyro", "kebab-wrap", "falafel-sandwich", "fries", "falafel-side", "wings", "shrimp-dumplings", "veggie-dumplings", "spring-rolls", "samosas"].map((n) => `/images/menu/${n}.jpg`);
 
 const blank = (): MenuItem => ({ id: "", name: "", description: "", price: 9.99, category: "mediterranean", image: IMAGES[0], tags: ["halal"], available: true, featured: false, optionGroups: [], sort: 99 });
 
@@ -91,7 +91,7 @@ function ItemEditor({ item, onClose }: { item: MenuItem | null; onClose: () => v
           </div>
           <div>
             <span className="mb-1 block text-sm font-semibold">Photo</span>
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-6 gap-2">
               {IMAGES.map((src) => (
                 <button type="button" key={src} onClick={() => set("image", src)} className={cn("overflow-hidden rounded-lg ring-2", f.image === src ? "ring-fire" : "ring-transparent")}>
                   <img src={src} alt="" className="aspect-square w-full object-cover" />

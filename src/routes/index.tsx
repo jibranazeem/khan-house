@@ -127,7 +127,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const words = ["Chicken over Rice", "Hibachi Shrimp", "Lamb Gyro", "Chicken & Lamb Mix", "Teriyaki Chicken", "Falafel", "Seekh Kebabs", "Wings"];
+  const words = ["Chicken over Rice", "Hibachi Shrimp", "Lamb Gyro", "Chicken & Lamb Mix", "Lamb over Rice", "Falafel", "Seekh Kebabs", "Wings", "Samosas"];
   const row = [...words, ...words];
   return (
     <div className="overflow-hidden bg-fire-gradient py-4 text-ink">
@@ -321,7 +321,10 @@ function VisitUs() {
           <h3 className="mt-4 font-display text-4xl tracking-wide">Find Us</h3>
           <p className="mt-4 font-semibold">{BRAND.city}, {BRAND.region}</p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{note}</p>
-          <a href={BRAND.phoneHref} className="mt-6 inline-flex items-center gap-2 font-bold text-fire"><Phone className="h-4 w-4" />{BRAND.phone}</a>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href={BRAND.mapsUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-fire px-5 py-2.5 text-sm font-bold text-white transition hover:bg-fire-deep"><MapPin className="h-4 w-4" />Get directions</a>
+            <a href={BRAND.phoneHref} className="inline-flex items-center gap-2 rounded-full px-2 py-2.5 text-sm font-bold text-fire"><Phone className="h-4 w-4" />{BRAND.phone}</a>
+          </div>
         </Reveal>
         <Reveal delay={2} className="relative overflow-hidden rounded-3xl bg-ink p-8 text-white">
           <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-fire/40 blur-3xl" />

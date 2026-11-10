@@ -18,7 +18,7 @@ function Contact() {
     { Icon: Phone, label: "Call or text", value: BRAND.phone, href: BRAND.phoneHref },
     { Icon: Mail, label: "Email", value: BRAND.email, href: `mailto:${BRAND.email}` },
     { Icon: Instagram, label: "Instagram", value: `@${BRAND.instagramHandle}`, href: SOCIAL.instagram },
-    { Icon: MapPin, label: "Where", value: `${BRAND.city}, ${BRAND.region}` },
+    { Icon: MapPin, label: "Find us · Get directions", value: `${BRAND.city}, ${BRAND.region}`, href: BRAND.mapsUrl },
   ];
   return (
     <>

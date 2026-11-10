@@ -8,7 +8,7 @@ The look follows the Khan House livery: black, fire red, ember orange and gold, 
 
 **Customer website**
 - Home: hero slider, Mediterranean + Hibachi showcase, fan favorites, stats, how it works, catering, hours and location
-- Menu: all items from the DoorDash listing with prices, category tabs, filters (popular, spicy, vegetarian), search, and a customize dialog (base, sauces, spice level, add-ons, notes)
+- Menu: the official Khan House menu (Mediterranean, Hibachi, Wraps, Sides) with prices, category tabs, filters (popular, spicy, vegetarian), search, and a customize dialog (base, sauces, spice level, add-ons, notes)
 - Cart and checkout: pickup or delivery, ASAP or scheduled time slots, tip, NC tax (8.25%), free delivery threshold, pay online or at pickup
 - Live order tracking (`/track`): Received → Confirmed → On the grill → Ready / Out for delivery → Done
 - Catering (packages + quote form), Our Story, Contact
@@ -89,11 +89,11 @@ public/images/         food photos
 ```
 
 ## Photos
-- **Real Khan House dishes** (cropped from the DoorDash listing): Chicken & Lamb Mix, Chicken over Rice, Falafel over Rice, Hibachi Chicken, Hibachi Shrimp (also used for Teriyaki Chicken & Shrimp), Chicken Gyro, Lamb Gyro. These are low resolution, so swap in the originals or new photos when you have them.
+- **Real Khan House dishes** (cropped from the DoorDash listing): Chicken & Lamb Mix, Chicken over Rice, Falafel over Rice, Hibachi Chicken, Hibachi Shrimp, Chicken Gyro, Lamb Gyro. These are low resolution, so swap in the originals or new photos when you have them.
 - **Stock photos (Unsplash, free to use)** for items with no photo yet and for the large banners. Replace the files in `public/images/` with the same names and the site updates.
 
 ## Things to confirm with the client
-- Instagram/Facebook/TikTok handle (set to `@KhanHouseCo` from the truck), email address, and whether to list a street address
-- Option groups and add-on prices (sauces, rice, spice, extras) are typical choices, not from DoorDash
+- Instagram/Facebook/TikTok handle (set to `@KhanHouseCo`), email address, and the street address to show next to the map link (`mapsUrl` in `src/lib/brand.ts`)
+- Option groups and add-on prices (sauces, rice, spice, extras) are typical choices, not from the official menu
 - Catering package prices ("from $15 / guest") are placeholders
 - Delivery radius, fee and free-delivery threshold

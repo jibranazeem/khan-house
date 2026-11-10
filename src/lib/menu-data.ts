@@ -4,7 +4,7 @@ export const CATEGORIES: Category[] = [
   { id: "mediterranean", name: "Mediterranean", blurb: "Halal platters over seasoned rice with crisp salad and our signature white sauce.", image: "/images/menu/chicken-lamb-mix.jpg" },
   { id: "hibachi", name: "Hibachi", blurb: "Seared hot on the flat-top with veggies, rice and a drizzle of yum yum sauce.", image: "/images/menu/hibachi-chicken.jpg" },
   { id: "wraps", name: "Wraps & Gyros", blurb: "Warm pita, loaded fillings and sauces that drip — built to eat on the go.", image: "/images/menu/chicken-gyro.jpg" },
-  { id: "sides", name: "Sides", blurb: "Wings, dumplings and extras to round out the meal.", image: "/images/menu/wings.jpg" },
+  { id: "sides", name: "Sides", blurb: "Fries, falafel, wings, dumplings, spring rolls and samosas to round out the meal.", image: "/images/menu/wings.jpg" },
 ];
 
 export const CATEGORY_NAME = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.name])) as Record<CategoryId, string>;
@@ -85,64 +85,73 @@ const MED = ["platterBase", "sauce", "spice", "platterAddons"];
 const HIB = ["hibachiRice", "hibachiExtras", "spice"];
 const WRAP = ["sauce", "spice"];
 
-// Menu and prices from the Khan House DoorDash listing. Photos marked with a real
-// dish come from the restaurant; the rest are stand-ins until real photos are added.
+// Menu and prices from the official Khan House menu (Nov 2026). Photos of real Khan House
+// dishes are used where available; the rest are stand-ins until real photos are added.
 export const DEFAULT_MENU: MenuItem[] = [
   // Mediterranean
-  { id: "chicken-lamb-mix", name: "Chicken & Lamb Mix", price: 14.99, category: "mediterranean", image: "/images/menu/chicken-lamb-mix.jpg",
-    description: "Tender chicken and lamb pieces served with chopped lettuce, tomatoes and cucumbers over seasoned yellow rice, finished with white sauce.",
-    tags: ["halal", "popular"], available: true, featured: true, optionGroups: MED, sort: 1 },
-  { id: "chicken-over-rice", name: "Chicken over Rice", price: 14.99, category: "mediterranean", image: "/images/menu/chicken-over-rice.jpg",
+  { id: "chicken-over-rice", name: "Chicken over Rice", price: 11.99, category: "mediterranean", image: "/images/menu/chicken-over-rice.jpg",
     description: "New York-style grilled chicken over rice, tossed with sautéed green peppers and onions, with fresh salad and our house white sauce.",
-    tags: ["halal", "popular"], available: true, featured: true, optionGroups: MED, sort: 2 },
-  { id: "seekh-kebabs-rice", name: "Seekh Kebabs with Rice", price: 13.99, category: "mediterranean", image: "/images/menu/seekh-kebabs.jpg",
+    tags: ["halal", "popular"], available: true, featured: true, optionGroups: MED, sort: 1 },
+  { id: "lamb-over-rice", name: "Lamb over Rice", price: 12.99, category: "mediterranean", image: "/images/menu/lamb-over-rice.jpg",
+    description: "Seasoned halal lamb seared on the grill, served over yellow rice with lettuce, tomato and white sauce.",
+    tags: ["halal"], available: true, featured: false, optionGroups: MED, sort: 2 },
+  { id: "chicken-lamb-mix", name: "Chicken & Lamb Mix", price: 12.99, category: "mediterranean", image: "/images/menu/chicken-lamb-mix.jpg",
+    description: "Tender chicken and lamb pieces served with chopped lettuce, tomatoes and cucumbers over seasoned yellow rice, finished with white sauce.",
+    tags: ["halal", "popular"], available: true, featured: true, optionGroups: MED, sort: 3 },
+  { id: "seekh-kebabs-rice", name: "Seekh Kebabs with Rice", price: 12.99, category: "mediterranean", image: "/images/menu/seekh-kebabs.jpg",
     description: "Hand-pressed, spice-rubbed seekh kebabs charred on the grill, served over yellow rice with salad and chutney.",
-    tags: ["halal", "spicy"], available: true, featured: false, optionGroups: MED, sort: 3 },
-  { id: "falafel-over-rice", name: "Falafel over Rice", price: 12.99, category: "mediterranean", image: "/images/menu/falafel-over-rice.jpg",
+    tags: ["halal", "spicy"], available: true, featured: false, optionGroups: MED, sort: 4 },
+  { id: "falafel-over-rice", name: "Falafel over Rice", price: 11.99, category: "mediterranean", image: "/images/menu/falafel-over-rice.jpg",
     description: "Crispy herb falafel over rice with lettuce, tomato and cucumber, drizzled with white sauce.",
-    tags: ["halal", "vegetarian"], available: true, featured: true, optionGroups: MED, sort: 4 },
+    tags: ["halal", "vegetarian"], available: true, featured: true, optionGroups: MED, sort: 5 },
 
   // Hibachi
-  { id: "hibachi-chicken", name: "Hibachi Chicken", price: 14.99, category: "hibachi", image: "/images/menu/hibachi-chicken.jpg",
+  { id: "hibachi-chicken", name: "Hibachi Chicken", price: 11.99, category: "hibachi", image: "/images/menu/hibachi-chicken.jpg",
     description: "Tender, juicy chicken grilled to perfection on a sizzling hibachi grill with savory butter-soy glaze, vegetables, sesame and scallions.",
     tags: ["halal", "popular"], available: true, featured: true, optionGroups: HIB, sort: 1 },
-  { id: "hibachi-shrimp", name: "Hibachi Shrimp", price: 14.99, category: "hibachi", image: "/images/menu/hibachi-shrimp.jpg",
+  { id: "hibachi-shrimp", name: "Hibachi Shrimp", price: 12.99, category: "hibachi", image: "/images/menu/hibachi-shrimp.jpg",
     description: "Succulent shrimp grilled to perfection on a sizzling hibachi grill, seasoned with garlic butter and served with vegetables and rice.",
     tags: ["halal"], available: true, featured: false, optionGroups: HIB, sort: 2 },
   { id: "hibachi-chicken-shrimp", name: "Hibachi Chicken & Shrimp", price: 12.99, category: "hibachi", image: "/images/menu/hibachi-chicken-shrimp.jpg",
     description: "A delicious combination of tender, juicy chicken and succulent shrimp, grilled to perfection on a sizzling hibachi grill and seasoned with garlic butter.",
     tags: ["halal", "popular"], available: true, featured: true, optionGroups: HIB, sort: 3 },
-  { id: "teriyaki-chicken", name: "Teriyaki Chicken", price: 14.99, category: "hibachi", image: "/images/menu/teriyaki-chicken.jpg",
-    description: "Flame-seared chicken glazed in sweet-savory teriyaki, served with vegetables and rice.",
-    tags: ["halal"], available: true, featured: false, optionGroups: HIB, sort: 4 },
-  { id: "teriyaki-shrimp", name: "Teriyaki Shrimp", price: 14.99, category: "hibachi", image: "/images/menu/teriyaki-shrimp.jpg",
-    description: "Juicy shrimp tossed in house teriyaki glaze with grilled vegetables and rice.",
-    tags: ["halal"], available: true, featured: false, optionGroups: HIB, sort: 5 },
-  { id: "teriyaki-chicken-shrimp", name: "Teriyaki Chicken & Shrimp", price: 14.99, category: "hibachi", image: "/images/menu/hibachi-shrimp.jpg",
-    description: "The best of both — teriyaki-glazed chicken and shrimp off the flat-top, with vegetables and rice.",
-    tags: ["halal"], available: true, featured: false, optionGroups: HIB, sort: 6 },
 
   // Wraps
-  { id: "chicken-gyro", name: "Chicken Gyro", price: 9.99, category: "wraps", image: "/images/menu/chicken-gyro.jpg",
+  { id: "chicken-gyro", name: "Chicken Gyro", price: 8.99, category: "wraps", image: "/images/menu/chicken-gyro.jpg",
     description: "Marinated grilled chicken in warm pita with lettuce, tomato, onion and white sauce.",
     tags: ["halal", "popular"], available: true, featured: true, optionGroups: WRAP, sort: 1 },
   { id: "lamb-gyro", name: "Lamb Gyro", price: 9.99, category: "wraps", image: "/images/menu/lamb-gyro.jpg",
     description: "Seasoned lamb sliced hot off the grill, wrapped in warm pita with fresh veggies and tzatziki-style white sauce.",
     tags: ["halal"], available: true, featured: false, optionGroups: WRAP, sort: 2 },
-  { id: "kebab-wrap", name: "Kebab Wrap", price: 8.99, category: "wraps", image: "/images/menu/kebab-wrap.jpg",
-    description: "Seekh kebab rolled with crunchy slaw, onions, herbs and sauce in a soft wrap.",
-    tags: ["halal", "spicy"], available: true, featured: false, optionGroups: WRAP, sort: 3 },
   { id: "falafel-sandwich", name: "Falafel Sandwich", price: 8.99, category: "wraps", image: "/images/menu/falafel-sandwich.jpg",
     description: "Golden falafel, lettuce, tomato, cucumber and white sauce tucked into warm pita.",
-    tags: ["halal", "vegetarian"], available: true, featured: false, optionGroups: WRAP, sort: 4 },
+    tags: ["halal", "vegetarian"], available: true, featured: false, optionGroups: WRAP, sort: 3 },
+  { id: "kebab-wrap", name: "Kebab Wrap", price: 8.99, category: "wraps", image: "/images/menu/kebab-wrap.jpg",
+    description: "Seekh kebab rolled with crunchy slaw, onions, herbs and sauce in a soft wrap.",
+    tags: ["halal", "spicy"], available: true, featured: false, optionGroups: WRAP, sort: 4 },
 
   // Sides
+  { id: "fries", name: "Fries", price: 2.99, category: "sides", image: "/images/menu/fries.jpg",
+    description: "Golden, crispy seasoned fries.",
+    tags: ["vegetarian"], available: true, featured: false, optionGroups: [], sort: 1 },
+  { id: "falafel-side-4", name: "Falafel Side (4 pcs)", price: 5.99, category: "sides", image: "/images/menu/falafel-side.jpg",
+    description: "Four crispy herb falafel with a side of white sauce.",
+    tags: ["halal", "vegetarian"], available: true, featured: false, optionGroups: [], sort: 2 },
   { id: "wings-6", name: "Wings (6 pcs)", price: 8.99, category: "sides", image: "/images/menu/wings.jpg",
     description: "Six crispy halal wings tossed in your choice of flavor, with a dipping sauce.",
-    tags: ["halal", "popular"], available: true, featured: false, optionGroups: ["wingSauce", "dip"], sort: 1 },
-  { id: "shrimp-dumplings-6", name: "Shrimp Dumplings (6 pcs)", price: 7.99, category: "sides", image: "/images/menu/shrimp-dumplings.jpg",
-    description: "Six pan-seared shrimp dumplings with a side of soy-ginger dip.",
-    tags: ["new"], available: true, featured: false, optionGroups: ["dip"], sort: 2 },
+    tags: ["halal", "popular"], available: true, featured: false, optionGroups: ["wingSauce", "dip"], sort: 3 },
+  { id: "shrimp-dumplings-6", name: "Shrimp Dumplings (6 pcs)", price: 5.99, category: "sides", image: "/images/menu/shrimp-dumplings.jpg",
+    description: "Six pan-seared shrimp dumplings with a soy-ginger dip.",
+    tags: ["new"], available: true, featured: false, optionGroups: ["dip"], sort: 4 },
+  { id: "veggie-dumplings-6", name: "Veggie Dumplings (6 pcs)", price: 4.99, category: "sides", image: "/images/menu/veggie-dumplings.jpg",
+    description: "Six vegetable dumplings, pan-seared and served with a soy-ginger dip.",
+    tags: ["vegetarian", "new"], available: true, featured: false, optionGroups: ["dip"], sort: 5 },
+  { id: "spring-rolls-2", name: "Spring Rolls (2 pcs)", price: 2.99, category: "sides", image: "/images/menu/spring-rolls.jpg",
+    description: "Two crispy vegetable spring rolls with sweet chili sauce.",
+    tags: ["vegetarian", "new"], available: true, featured: false, optionGroups: ["dip"], sort: 6 },
+  { id: "samosas-2", name: "Samosas (2 pcs)", price: 2.99, category: "sides", image: "/images/menu/samosas.jpg",
+    description: "Two golden, flaky samosas stuffed with spiced potatoes and peas, served with chutney.",
+    tags: ["vegetarian", "new"], available: true, featured: false, optionGroups: [], sort: 7 },
 ];
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];

@@ -7,6 +7,8 @@ export const BRAND = {
   city: "Apex",
   region: "North Carolina",
   area: "Apex, NC",
+  // Exact location on Google Maps (from the owner). Used for every "Get directions" link.
+  mapsUrl: "https://maps.app.goo.gl/Ck7CgKpW8nyCHfaG8",
   phone: "(919) 307-9893",
   phoneHref: "tel:+19193079893",
   email: "hello@khanhouse.co",
