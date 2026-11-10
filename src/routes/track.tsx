@@ -102,6 +102,7 @@ function OrderStatusCard({ order }: { order: Order }) {
           <div className="flex justify-between"><dt className="text-muted-foreground">Tip</dt><dd>{money(order.tip)}</dd></div>
           <div className="flex justify-between border-t border-border pt-2 text-base font-extrabold"><dt>Total</dt><dd>{money(order.total)}</dd></div>
           <p className="pt-2 text-xs text-muted-foreground">{order.paymentStatus === "paid" ? "Paid online" : order.paymentStatus === "refunded" ? "Refunded" : "Pay at pickup"}{order.address ? ` · Delivering to ${order.address}` : ""}</p>
+          {order.type === "pickup" && <p className="text-xs">Pickup at <a href={BRAND.mapsUrl} target="_blank" rel="noreferrer" className="font-bold text-fire">{BRAND.address}</a></p>}
         </dl>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/50 px-6 py-4 text-sm md:px-8">

@@ -93,7 +93,7 @@ public/images/         food photos
 - **Stock photos (Unsplash, free to use)** for items with no photo yet and for the large banners. Replace the files in `public/images/` with the same names and the site updates.
 
 ## Things to confirm with the client
-- Instagram/Facebook/TikTok handle (set to `@KhanHouseCo`), email address, and the street address to show next to the map link (`mapsUrl` in `src/lib/brand.ts`)
+- Instagram/Facebook/TikTok handle (set to `@KhanHouseCo`) and email address (address and map link live in `src/lib/brand.ts`)
 - Option groups and add-on prices (sauces, rice, spice, extras) are typical choices, not from the official menu
 - Catering package prices ("from $15 / guest") are placeholders
 - Delivery radius, fee and free-delivery threshold

@@ -68,10 +68,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const LOCAL_BUSINESS = JSON.stringify({
+  "@context": "https://schema.org", "@type": "Restaurant", name: BRAND.name, telephone: "+1-919-307-9893",
+  servesCuisine: ["Mediterranean", "Hibachi", "Halal"], hasMap: BRAND.mapsUrl,
+  address: { "@type": "PostalAddress", streetAddress: BRAND.street, addressLocality: "Apex", addressRegion: "NC", postalCode: "27502", addressCountry: "US" },
+});
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head><HeadContent /></head>
+      <head><HeadContent /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: LOCAL_BUSINESS }} /></head>
       <body>
         {children}
         <Scripts />

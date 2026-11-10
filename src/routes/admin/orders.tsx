@@ -172,7 +172,7 @@ function printTicket(o: Order) {
   if (!w) return toast.error("Allow pop-ups to print tickets.");
   const esc = (s: string) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]!);
   w.document.write(`<!doctype html><html><head><title>${o.number}</title><style>body{font:14px/1.4 ui-monospace,monospace;margin:16px;width:300px}h1{font-size:20px;margin:0}hr{border:0;border-top:1px dashed #000;margin:10px 0}.r{display:flex;justify-content:space-between}.s{font-size:12px;color:#444;padding-left:16px}</style></head><body>
-  <h1>${BRAND.name.toUpperCase()}</h1><div>${BRAND.phone}</div><hr/>
+  <h1>${BRAND.name.toUpperCase()}</h1><div>${BRAND.address}</div><div>${BRAND.phone}</div><hr/>
   <div class="r"><b>${o.number}</b><b>${o.type.toUpperCase()}</b></div><div>${fmtDateTime(o.createdAt)}${o.scheduledFor ? ` · FOR ${to12h(o.scheduledFor)}` : " · ASAP"}</div>
   <div>${esc(o.customer.name)} · ${esc(o.customer.phone)}</div>${o.address ? `<div>${esc(o.address)}</div>` : ""}<hr/>
   ${o.items.map((l) => `<div class="r"><span>${l.quantity}x ${esc(l.name)}</span><span>${money(l.unitPrice * l.quantity)}</span></div>${l.options.length ? `<div class="s">${esc(l.options.join(", "))}</div>` : ""}${l.instructions ? `<div class="s">** ${esc(l.instructions)}</div>` : ""}`).join("")}

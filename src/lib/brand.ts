@@ -8,6 +8,9 @@ export const BRAND = {
   region: "North Carolina",
   area: "Apex, NC",
   // Exact location on Google Maps (from the owner). Used for every "Get directions" link.
+  address: "321 S Salem St, Apex, NC 27502",
+  street: "321 S Salem St",
+  cityStateZip: "Apex, NC 27502",
   mapsUrl: "https://maps.app.goo.gl/Ck7CgKpW8nyCHfaG8",
   phone: "(919) 307-9893",
   phoneHref: "tel:+19193079893",

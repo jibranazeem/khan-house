@@ -108,6 +108,11 @@ function Checkout() {
               <Choice on={type === "delivery"} disabled={!settings.deliveryEnabled} onClick={() => setType("delivery")} icon={<Bike className="h-5 w-5" />} title="Delivery"
                 sub={base.subtotal >= settings.freeDeliveryOver ? "Free delivery" : `${money(settings.deliveryFee)} · free over ${money(settings.freeDeliveryOver)}`} />
             </div>
+            {type === "pickup" && (
+              <a href={BRAND.mapsUrl} target="_blank" rel="noreferrer" className="mt-3 flex items-center gap-2 rounded-xl bg-muted/70 px-4 py-3 text-sm">
+                <Store className="h-4 w-4 shrink-0 text-fire" /><span>Pick up at <b>{BRAND.address}</b></span><span className="ml-auto text-xs font-bold text-fire">Directions</span>
+              </a>
+            )}
             <div className="mt-4 grid grid-cols-2 gap-3">
               <Choice on={when === "asap"} onClick={() => setWhen("asap")} title="ASAP" sub="Start cooking now" />
               <Choice on={when === "later"} disabled={!slots.length} onClick={() => setWhen("later")} title="Schedule" sub={slots.length ? "Pick a time today" : "No more slots today"} />

@@ -319,7 +319,7 @@ function VisitUs() {
         <Reveal delay={1} className="rounded-3xl bg-card p-8 shadow-[0_25px_50px_-35px_rgba(0,0,0,.5)] ring-1 ring-border">
           <MapPin className="h-8 w-8 text-fire" />
           <h3 className="mt-4 font-display text-4xl tracking-wide">Find Us</h3>
-          <p className="mt-4 font-semibold">{BRAND.city}, {BRAND.region}</p>
+          <p className="mt-4 font-semibold">{BRAND.street}<br />{BRAND.cityStateZip}</p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{note}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={BRAND.mapsUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-fire px-5 py-2.5 text-sm font-bold text-white transition hover:bg-fire-deep"><MapPin className="h-4 w-4" />Get directions</a>
